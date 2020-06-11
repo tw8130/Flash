@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="text-center">
+    <h1 class="mt-5">Decks:</h1>
+    {% for deck in object_list %}
+    <h5>
+        <small>
+            #{{ deck.id }}
+        </small>
+        <a href="/decks/{{ deck.id }}">
+            {{ deck.deck_name }}
+        </a>
+    </h5>
+    {% endfor %}
+</div>
+{% endblock %}

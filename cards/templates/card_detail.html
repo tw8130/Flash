@@ -1,0 +1,17 @@
+ {% extends 'base.html' %}
+ {% load bootstrap3 %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">{{flash_card.title}}</li>
+                      <li class="list-group-item">{{flash_card.notes}}</li>
+                      <li class="list-group-item">{{flash_card.date_created}}</li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
