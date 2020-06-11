@@ -1,0 +1,31 @@
+{% load bootstrap3 %}
+{% load static %}
+{% load material_form %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Cards Tribune - {{title}}</title>
+  {% else %}
+    <title> Cards Tribune </title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/basecards.css' %}">
+  {% endblock %}
+
+</head>
+<body>
+  
+
+    {% block content %}  {%endblock%}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>

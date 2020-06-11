@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="alert alert-danger">
+                        <h1>Are you sure you want to delete {{flash_card}}</h1>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

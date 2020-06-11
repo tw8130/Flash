@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+    <div class="container-fluid">
+
+        <div class="main-header">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h1 class='text-center'>Your FlashCards <i class="fa fa-id-card-o" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-2">OR</div>
+                    <div class="col-md-5">
+                        <h2>Make a new card
+                        <a href="{% url 'post_card' %}"><button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
+                </button></a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row ">
+            <h1 class="text-center mt-5"><a href="/decks/{{ deck.id }}"></a>Deck:{{ deck.deck_name }}</h1>
+            <h6 class="text-center">
+                Created on: {{ deck.date_created }}
+            </h6>
+            
+            
+            <hr>
+        </div>
+
+            <div class="row mt-5">
+                {% for flashcard in flash_cards %}
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+
+                <div class="col-md-7 col-xs-7 col-sm-7">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="{% url 'view_card' flashcard.id %}">
+                                <h5>Title:{{flashcard.title}}</h5>
+                                <h6>{{flashcard.category}}</h6>
+
+
+                                {% if flashcard.date_updated %}
+                                    <small class="text-info">last_updated: {{flashcard.date_updated}}</small>
+                                {% else %}
+                                    <small class="text-info">last_updated:{{flashcard.date_created}}</small>
+                                {% endif %}
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'view_card' flashcard.id %}"><button type="button" class="btn btn-success btn-lg"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                    </button></a>
+                </div>
+
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'update_card' flashcard.id %}"><button type="button" class="btn btn-primary btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button></a>
+                </div>
+
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'delete_card' flashcard.id %}"><button type="button" class="btn btn-danger btn-lg"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button></a>
+                </div>
+
+            </div>
+            {% endfor %}
+
+    </div>
+{% endblock %}

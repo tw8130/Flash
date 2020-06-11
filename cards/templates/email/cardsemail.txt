@@ -1,0 +1,5 @@
+Hello {{name}}
+
+Welcome to the FlashCard tribune newsletter. You will find flashcards created by other users of
+which you can also create yours so no need to remember where you kept them this application will
+do it for you.
